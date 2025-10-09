@@ -1,0 +1,220 @@
+/* Tema e fontes */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+/* Paleta */
+:root{
+  --verde-claro:#C3D91A;
+  --cinza:#9FA0A6;
+  --branco:#FFFFFF;
+  --preto:#101113;
+  --borda:0.09375rem;
+  --sombra:0 0.5rem 1.5rem rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--branco);
+  color:var(--preto);
+  font-family:'Nunito Sans', Arial, sans-serif;
+}
+
+/* Moldura do app */
+.aplicativo{
+  max-width:24.375rem;
+  margin:1.25rem auto;
+  background:var(--branco);
+  border-radius:1.5rem;
+  box-shadow:var(--sombra);
+  border:var(--borda) solid #e6e7ea;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:42.5rem;
+}
+
+/* Cabeçalho */
+.cabecalho{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1.125rem 1rem;
+  background: linear-gradient(180deg,#fff,#fbfbfc);
+  border-bottom: var(--borda) solid #eceef1;
+}
+.marca{
+  font-family:'Fredoka', sans-serif;
+  font-weight:700;
+  font-size:1.75rem;
+  margin:0 auto;
+  text-align: center;
+}
+
+/* Hamburguer */
+.menu-hamburguer {
+  width:2rem;
+  height:2rem;
+  display:inline-block;
+  position:absolute;
+  right:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+}
+.menu-hamburguer span,
+.menu-hamburguer span::before,
+.menu-hamburguer span::after {
+  display:block;
+  position:absolute;
+  height:0.25rem;
+  width:100%;
+  background:var(--preto);
+  border-radius:0.125rem;
+  transition:0.3s;
+  content:"";
+}
+.menu-hamburguer span {
+  top:50%;
+  left:0;
+  transform:translateY(-50%);
+}
+.menu-hamburguer span::before {
+  top:-0.6rem;
+  left:0;
+}
+.menu-hamburguer span::after {
+  top:0.6rem;
+  left:0;
+}
+
+/* Conteúdo */
+.conteudo{
+  padding:1.125rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Centraliza lucro e meta */
+.indicador-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.indicador{
+  font-family:'Fredoka', sans-serif;
+  font-weight:600;
+  font-size:1.375rem;
+  margin:0.375rem 0 0.25rem;
+  text-align: center;
+}
+.subtitulo{
+  color:var(--cinza);
+  font-size:0.875rem;
+  margin:0 0 0.75rem;
+  font-weight:600;
+  text-align: center;
+}
+
+/* Gráfico */
+.grafico{
+  display:block;
+  width:100%;
+  max-width:20rem;
+  margin:0.375rem auto 1rem;
+  border-radius:0.75rem;
+  border:var(--borda) solid #e6e7ea;
+  background:#fff;
+  box-shadow:0 0.1875rem 0.625rem rgba(0,0,0,.04);
+}
+
+/* Abas */
+.abas{
+  display:flex;
+  gap:0.625rem;
+  justify-content:center;
+  margin:0 0 1.125rem;
+  padding:0;
+  list-style:none;
+}
+.aba{
+  padding:0.5rem 0.875rem;
+  border-radius:999rem;
+  border:var(--borda) solid #e6e7ea;
+  background:#fff;
+  font-weight:700;
+  cursor:pointer;
+  font-size:0.875rem;
+  transition:.2s ease;
+}
+.aba:hover{ border-color:var(--cinza) }
+.aba--ativa{
+  background:var(--verde-claro);
+  border-color:transparent;
+  color:#1b1d06;
+  box-shadow:0 0.375rem 0.875rem rgba(195,217,26,.35);
+}
+
+/* Botão principal */
+.botao-principal{
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  color:#1a1a1a;
+  background:var(--branco);
+  border-radius:0.875rem;
+  border:0.1875rem solid var(--preto);
+  padding:1rem 1rem;
+  font-family:'Fredoka', sans-serif;
+  font-size:2.25rem;
+  font-weight:700;
+  margin:0.25rem 0 1.25rem;
+  box-shadow:0 0.25rem 0 0 #10111320;
+}
+.botao-principal:hover{ background:#fefefe }
+.botao-principal:active{ transform:translateY(0.0625rem) }
+
+/* Navegação inferior */
+.nav-inferior{
+  position:sticky;
+  bottom:0;
+  display:flex;
+  gap:0.5rem;
+  padding:0.625rem;
+  background:#fff;
+  border-top:var(--borda) solid #eceef1;
+}
+.nav-inferior a{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.375rem;
+  text-decoration:none;
+  color:var(--preto);
+  font-weight:700;
+  font-size:0.75rem;
+}
+
+/* Ícones */
+.icone{
+  display:block;
+  width:3.5rem;
+  height:3.5rem;
+  object-fit:contain;
+  border-radius:0.75rem;
+}
+
+/* Estado ativo */
+.nav-inferior a.ativo .icone{
+  box-shadow:0 0.5rem 1.25rem rgba(0,0,0,.12);
+  border-radius:0.875rem;
+}
+
+/* Responsivo */
+@media (max-width:22.5rem){
+  .botao-principal{ font-size:2rem }
+}
+
