@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <title>FeiraTop</title>
-        <meta charset="UTF-8">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Adicionar Gasto</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <header class="cabecalho" id="cabecalho-vendas">
+        <a class="voltar" href="vendas.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer menu-hamburguer--dark" aria-label="Abrir menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
 
-    <body>
-        <header>
-            <a href="vendas.html">Voltar</a>
-            <h1>FeiraTop</h1>
-        </header>
-        <main>
+      <main class="conteudo vendas-conteudo">
+        <section class="centro conteudo-secundaria">
+          <h2 class="subtitulo">Adicionar gasto</h2>
+          <form id="form-adicionar-gasto" class="form-adicionar" action="vendas.html" method="post" novalidate aria-label="Formulário adicionar gasto">
+            <fieldset class="campo">
+              <label for="nome-gasto">Nome do gasto</label>
+              <input id="nome-gasto" name="gasto_nome" type="text" placeholder="Batatas, cenouras..." required>
+            </fieldset>
 
-            <h3>Nome do Gasto</h3>
-            <input type="text" name="Gasto" placeholder="Batatas, cenouras...">
+            <fieldset class="campo">
+              <label for="valor-gasto">Valor (R$)</label>
+              <input id="valor-gasto" name="gasto_valor" type="number" step="0.01" placeholder="0,00" required>
+            </fieldset>
 
-            <h3>Valor</h3>
-            <input type="number" name="Valor do Gasto" placeholder="Valor do Gasto">
+            <fieldset class="campo">
+              <label for="data-gasto">Data</label>
+              <input id="data-gasto" name="gasto_data" type="date" required>
+            </fieldset>
 
-            <h3>Data</h3>
-            <input type="date" name="Data do Gasto">
-
-            <h2><a href="vendas.html">Confirmar</a></h2>
-            
-        </main>
-    </body>
-</html>
+            <div class="acoes-form" role="group" aria-label="Ações formulário">
+              <a class="botao-principal botao-principal--vendas" href="vendas.html">Confirmar</a>
+            </div>
+          </form>
+        </section>
+       </main>
+    <!-- fim layout fluido (sem .aplicativo) -->
+   </body>
+ </html>

@@ -3,45 +3,49 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeiraTop</title>
+    <title>FeiraTop — Vendas</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <section class="aplicativo">
-      <header class="cabecalho">
-        <a href="index.html" title="Voltar" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1.5rem;text-decoration:none;">&#8592;</a>
+      <header class="cabecalho" id="cabecalho-vendas">
+        <a class="voltar" href="index.html" title="Voltar" aria-label="Voltar">&#8592;</a>
         <h1 class="marca">FeiraTop</h1>
-        <button class="menu-hamburguer" aria-label="Menu" type="button">
-          <span></span>
-        </button>
+        <button class="menu-hamburguer menu-hamburguer--dark" aria-label="Abrir menu" type="button"><span></span></button>
       </header>
+ 
       <main class="conteudo">
-        <section class="indicador-container">
-          <h2 class="indicador" style="font-size:2rem;margin-bottom:0.5rem;">Vendas</h2>
-        </section>
-        <div style="text-align:center;">
-          <h3 class="subtitulo" style="font-size:1.25rem;">Gasto: R$ 0</h3>
-          <h3 class="subtitulo" style="font-size:1.25rem;">Vendas: R$ 0</h3>
-          <h3 class="subtitulo" style="font-size:1.25rem;">Lucro: R$ 0</h3>
+        <div class="indicador-container">
+          <h2 class="indicador">Vendas</h2>
         </div>
-        <a class="botao-principal" href="adcionar_gasto.html" style="margin-bottom:0.75rem;">Adicionar gasto</a>
-        <button class="botao-principal" type="button">Recalcular Lucro</button>
+ 
+        <section class="centro conteudo-secundaria">
+          <h3 class="subtitulo">Estatísticas</h3>
+          <ul class="estatisticas" aria-label="Estatísticas de vendas">
+            <li class="estat-item">
+              <h3 class="estat-label">Gasto</h3>
+              <span class="estat-valor">R$ 0</span>
+            </li>
+
+            <li class="estat-item">
+              <h3 class="estat-label">Vendas</h3>
+              <span class="estat-valor">R$ 0</span>
+            </li>
+
+            <li class="estat-item">
+              <h3 class="estat-label">Lucro</h3>
+              <span class="estat-valor valor-positivo">R$ 0</span>
+            </li>
+          </ul>
+
+          <nav class="acoes-botoes coluna" aria-label="Ações vendas">
+            <a class="botao-principal botao-principal--vendas" href="adicionar_gasto.html">Adicionar gasto</a>
+            <button class="botao-principal botao-principal--vendas" type="button">Recalcular Lucro</button>
+          </nav>
+        </section>
       </main>
-      <nav class="nav-inferior" aria-label="Navegação principal">
-        <a href="estoque.html" title="Estoque">
-          <img class="icone" src="img/estoque.png" alt="Estoque">
-          Estoque
-        </a>
-        <a href="metas.html" title="Metas">
-          <img class="icone" src="img/meta.png" alt="Metas">
-          Metas
-        </a>
-        <a href="cupons.html" title="Cupons">
-          <img class="icone" src="img/recibo.png" alt="Cupons">
-          Cupons
-        </a>
-      </nav>
-    </section>
-  </body>
-</html>
+ 
+      <footer class="acoes-footer" aria-hidden="true">
+      </footer>
+   </body>
+ </html>

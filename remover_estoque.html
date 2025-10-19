@@ -1,28 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <title>FeiraTop</title>
-        <meta charset="UTF-8">
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FeiraTop — Remover Estoque</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="cabecalho" id="cabecalho-estoque"> 
+      <a class="voltar" href="manejarestoque.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+      <h1 class="marca">FeiraTop</h1>
+      <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
+    </header>
 
-    <body>
-        <header>
-            <a href="manejarestoque.html">Voltar</a>
-            <h1>FeiraTop</h1>
-        </header>
-        <main>
-            <h3>Batatas - 40x</h3>
-            <h4>Validade: 2 semanas </h4>
-            <input type="checkbox">
-            <h3>Bananas - 36x</h3>
-            <h4>Validade: 5 dias </h4>
-            <input type="checkbox">
-            <h3>Abacaxi - 12x</h3>
-            <h4>Validade: 3 dias </h4>
-            <input type="checkbox">
+    <main class="conteudo">
+    <ul id="scroll-remover-manejar" class="scroll-box lista-manejar" aria-label="Itens para remover">
+      <li>
+          <input class="select" type="checkbox" id="r1">
+          <label class="item-card item-card--manejar" for="r1">
+            <span class="card-row"><span class="nome">Maçã</span><span class="quantidade">0x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r2">
+          <label class="item-card item-card--manejar" for="r2">
+            <span class="card-row"><span class="nome">Cebola</span><span class="quantidade">1x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r3">
+          <label class="item-card item-card--manejar" for="r3">
+            <span class="card-row"><span class="nome">Batata</span><span class="quantidade">0x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r4">
+          <label class="item-card item-card--manejar" for="r4">
+            <span class="card-row"><span class="nome">Limão</span><span class="quantidade">0x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r5">
+          <label class="item-card item-card--manejar" for="r5">
+            <span class="card-row"><span class="nome">Melancia</span><span class="quantidade">0x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r6">
+          <label class="item-card item-card--manejar" for="r6">
+            <span class="card-row"><span class="nome">Repolho</span><span class="quantidade">0x</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r7">
+          <label class="item-card item-card--manejar" for="r7">
+            <span class="card-row"><span class="nome">Abacaxi</span><span class="quantidade">1 dia</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r8">
+          <label class="item-card item-card--manejar" for="r8">
+            <span class="card-row"><span class="nome">Cenoura</span><span class="quantidade">3 dias</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r9">
+          <label class="item-card item-card--manejar" for="r9">
+            <span class="card-row"><span class="nome">Alface</span><span class="quantidade">3 dias</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+        <li>
+          <input class="select" type="checkbox" id="r10">
+          <label class="item-card item-card--manejar" for="r10">
+            <span class="card-row"><span class="nome">Banana</span><span class="quantidade">2 dias</span></span>
+            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
+          </label>
+        </li>
+      </ul>
 
-            <h2><a href="estoque.html">Confirmar</a>
-            </h2>
-        </main>
-    </body>
+      <a class="botao-principal botao-principal--dourado" href="estoque.html" role="button">Confirmar</a>
+    </main>
+  </body>
 </html>

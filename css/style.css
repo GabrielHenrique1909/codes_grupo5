@@ -1,220 +1,1100 @@
 /* Tema e fontes */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
 
-/* Paleta */
 :root{
   --verde-claro:#C3D91A;
+  --verde-escuro:#7F8C16;
   --cinza:#9FA0A6;
   --branco:#FFFFFF;
-  --preto:#101113;
+  --preto:#000000;
+  --laranja:#EAA628;
+  --laranja-dark:#e0a838;    /* adicionado para gradientes */
+  --vermelho:#BF0606;
+  --cinza-claro:#efefef;    /* adicionado para fundos de botões claros */
   --borda:0.09375rem;
+  --raio:1rem;
   --sombra:0 0.5rem 1.5rem rgba(0,0,0,.08);
 }
 
+/* Reset mínimo */
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
   background:var(--branco);
   color:var(--preto);
-  font-family:'Nunito Sans', Arial, sans-serif;
+  font-family:'Nunito Sans', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+
+  /* preservar um espaçamento confortável nas laterais em telas pequenas */
+  padding:1.25rem 0.75rem;
+  min-height:100vh;
+}
+/* em telas maiores manter um container centralizado opcional (sem forçar app-look) */
+@media (min-width:64rem){
+  body{
+    padding:2rem;
+  }
 }
 
-/* Moldura do app */
-.aplicativo{
-  max-width:24.375rem;
-  margin:1.25rem auto;
-  background:var(--branco);
-  border-radius:1.5rem;
-  box-shadow:var(--sombra);
-  border:var(--borda) solid #e6e7ea;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  min-height:42.5rem;
-}
-
-/* Cabeçalho */
+/* Header curvo em verde (usar variáveis de cor em gradiente) */
 .cabecalho{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 1.125rem 1rem;
-  background: linear-gradient(180deg,#fff,#fbfbfc);
-  border-bottom: var(--borda) solid #eceef1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem 1rem;                /* aumentado para cabeçalho maior */
+  position:relative;
+  background:linear-gradient(180deg, var(--laranja), var(--laranja-dark));
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06); /* mais sutil sobre o verde */
+  z-index:2; /* garantir que o cabeçalho fique acima do main (.conteudo tem z-index:1) */
 }
 .marca{
   font-family:'Fredoka', sans-serif;
   font-weight:700;
-  font-size:1.75rem;
-  margin:0 auto;
-  text-align: center;
+  font-size:2rem; /* maior */
+  margin:0;
+  color:var(--branco); /* branco para contraste no verde */
 }
 
-/* Hamburguer */
-.menu-hamburguer {
-  width:2rem;
-  height:2rem;
-  display:inline-block;
+/* cabeçalho específico para a index — verde claro */
+#cabecalho-index{
+  background: linear-gradient(180deg, var(--verde-claro), #b8cf17);
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+/* Hamburguer (linhas brancas) */
+.menu-hamburguer{
   position:absolute;
   right:1rem;
   top:50%;
-  transform:translateY(-50%);
+  transform:translateY(-50%); /* centraliza verticalmente no novo cabeçalho */
+  width:1.75rem;
+  height:1.125rem;
+  background:transparent;
+  border:0;
+  padding:0;
   cursor:pointer;
 }
 .menu-hamburguer span,
 .menu-hamburguer span::before,
-.menu-hamburguer span::after {
+.menu-hamburguer span::after{
+  content:"";
   display:block;
   position:absolute;
-  height:0.25rem;
-  width:100%;
-  background:var(--preto);
+  left:0; right:0;
+  height:0.1875rem;
+  background:var(--branco); /* linhas brancas para contraste */
   border-radius:0.125rem;
-  transition:0.3s;
-  content:"";
 }
-.menu-hamburguer span {
-  top:50%;
-  left:0;
-  transform:translateY(-50%);
-}
-.menu-hamburguer span::before {
-  top:-0.6rem;
-  left:0;
-}
-.menu-hamburguer span::after {
-  top:0.6rem;
-  left:0;
-}
+.menu-hamburguer span{ top:50%; transform:translateY(-50%); }
+.menu-hamburguer span::before{ top:-0.5rem; }
+.menu-hamburguer span::after { top:0.5rem; }
 
-/* Conteúdo */
+/* Conteúdo principal */
 .conteudo{
   padding:1.125rem 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  position:relative;
+  z-index:1;
+
+  /* centragem vertical e horizontal do conteúdo principal */
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-/* Centraliza lucro e meta */
-.indicador-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Indicador (lucro) */
+.indicador-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:-1.2rem; /* sobe o indicador mais para cima, ajustável conforme desejado */
 }
 .indicador{
   font-family:'Fredoka', sans-serif;
-  font-weight:600;
+  font-weight:700;
   font-size:1.375rem;
-  margin:0.375rem 0 0.25rem;
-  text-align: center;
+  margin:0;
+  color:var(--preto);
 }
-.subtitulo{
-  color:var(--cinza);
-  font-size:0.875rem;
-  margin:0 0 0.75rem;
-  font-weight:600;
-  text-align: center;
+/* cor específica para a quantia */
+.indicador .valor{
+  color:var(--verde-escuro);
 }
 
 /* Gráfico */
 .grafico{
   display:block;
   width:100%;
-  max-width:20rem;
-  margin:0.375rem auto 1rem;
+  max-width:22.5rem; /* um pouco maior */
+  margin:1rem auto 0.75rem; /* mais espaço acima/embaixo */
   border-radius:0.75rem;
   border:var(--borda) solid #e6e7ea;
-  background:#fff;
+  background:var(--branco);
   box-shadow:0 0.1875rem 0.625rem rgba(0,0,0,.04);
+  object-fit:cover;
 }
 
-/* Abas */
+/* Abas (pills) */
 .abas{
   display:flex;
-  gap:0.625rem;
+  gap:0.75rem; /* espaço levemente maior */
   justify-content:center;
-  margin:0 0 1.125rem;
+  margin:0.75rem 0;
   padding:0;
   list-style:none;
 }
 .aba{
-  padding:0.5rem 0.875rem;
-  border-radius:999rem;
-  border:var(--borda) solid #e6e7ea;
-  background:#fff;
-  font-weight:700;
+  padding:0.75rem 1.1rem; /* maior */
+  border-radius:0.75rem; /* arredondado, mas maior */
+  border:0.125rem solid var(--preto);
+  background:var(--branco);
+  font-weight:800;
   cursor:pointer;
-  font-size:0.875rem;
-  transition:.2s ease;
+  font-size:1rem; /* fonte mais evidente */
+  transition:.15s ease;
 }
-.aba:hover{ border-color:var(--cinza) }
 .aba--ativa{
-  background:var(--verde-claro);
-  border-color:transparent;
-  color:#1b1d06;
-  box-shadow:0 0.375rem 0.875rem rgba(195,217,26,.35);
+  background:var(--branco);
+  box-shadow:0 0.375rem 0.875rem rgba(0,0,0,0.06);
+  color:var(--preto);
 }
 
-/* Botão principal */
+/* Botão principal grande (Vendas) - estilo conforme imagem: fundo claro, borda escura */
 .botao-principal{
   display:block;
+  width:100%;
+  max-width:24rem; /* ainda maior para parecer bem dominante */
+  margin:0.9rem auto;
   text-decoration:none;
   text-align:center;
-  color:#1a1a1a;
-  background:var(--branco);
-  border-radius:0.875rem;
-  border:0.1875rem solid var(--preto);
-  padding:1rem 1rem;
+  color:var(--preto);
+  background:var(--cinza-claro);
+  border-radius:0.9rem;
+  border:0.125rem solid var(--cinza);
+  padding:1.25rem 1.5rem; /* padding maior */
   font-family:'Fredoka', sans-serif;
-  font-size:2.25rem;
-  font-weight:700;
-  margin:0.25rem 0 1.25rem;
-  box-shadow:0 0.25rem 0 0 #10111320;
+  font-size:1.6rem; /* fonte bem maior */
+  font-weight:800;
 }
-.botao-principal:hover{ background:#fefefe }
-.botao-principal:active{ transform:translateY(0.0625rem) }
 
-/* Navegação inferior */
-.nav-inferior{
+/* cabeçalho específico para a tela de estoque (laranja/curva) */
+#cabecalho-estoque{
+  background:linear-gradient(180deg,var(--laranja),var(--laranja-dark));
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  /* manter espaçamento igual ao .cabecalho */
+  padding:1.5rem 1rem;
+}
+
+/* botão voltar (seta à esquerda) */
+.voltar{
+  position:absolute;
+  left:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--branco);
+  text-decoration:none;
+  font-size:1.5rem;
+  font-weight:700;
+  z-index:2;
+  background:transparent;
+  border-radius:0.25rem;
+  padding:0.125rem 0.35rem;
+}
+
+/* variação escura do menu-hamburguer para usar em itens (linhas pretas) */
+.menu-hamburguer--dark span,
+.menu-hamburguer--dark span::before,
+.menu-hamburguer--dark span::after{
+  background:var(--preto);
+}
+.menu-hamburguer--dark{
+  width:2.2rem;
+  height:1rem;
+}
+
+/* cards de item simples (lista) */
+.item-card{
+  /* itens maiores: mais padding e altura mínima para ficarem mais destacados */
+	width:100%;
+	max-width:23.5rem; /* preencher bem a scroll-box com folga interna */
+	margin:0.4rem auto;
+	padding:1rem 1.25rem; /* padding aumentado */
+	min-height:3.2rem;    /* garante cartões visualmente maiores */
+	border-radius:0.5rem;
+	border:0.12rem solid var(--cinza);
+	background:var(--branco);
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:0.75rem;
+	box-shadow:0 0.08rem 0.2rem rgba(0,0,0,0.03);
+}
+
+.item-text{
+	/* texto maior e com peso para destacar */
+	font-size:1.2rem;
+	font-weight:700;
+	color:var(--preto);
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+/* container de estatísticas (texto fixo, sem scroll) */
+.estatisticas{
+  width:100%;
+  max-width:24rem;
+  margin:0.5rem auto;
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  box-sizing:border-box;
+}
+
+/* cada linha de estatística (label à esquerda, valor à direita) */
+.estat-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0.65rem 0.8rem;
+  border-radius:0.5rem;
+  background:transparent;
+  border:0.09rem solid transparent; /* sem borda visível, mas mantém consistência visual */
+}
+.estat-label{
+  font-size:2rem; /* aumentado de 1.1rem */
+  font-weight:700;
+  color:var(--preto);
+}
+.estat-valor{
+  font-size:2rem; /* aumentado de 1.1rem */
+  font-weight:800;  /* mais destaque para os números */
+  color:var(--preto);
+}
+
+/* texto de valores positivos (lucro) */
+.valor-positivo{
+  color:var(--verde-escuro);
+  font-weight:800;
+}
+
+/* container para os botões na tela vendas (remove necessidade de estilos inline) */
+.acoes-botoes{
+  width:100%;
+  max-width:24rem;
+  margin:0.6rem auto;
+  display:flex;
+  gap:0.5rem;
+  box-sizing:border-box;
+}
+.acoes-botoes.coluna{
+  flex-direction:column;
+  gap:0.6rem;
+  width:100%;
+  max-width:24rem;
+  margin:0.6rem auto;
+  box-sizing:border-box;
+  display:flex;
+}
+.acoes-botoes.coluna .botao-principal,
+.acoes-botoes.coluna .botao-principal--dourado{
+  /* ocupar 100% na coluna */
+  flex:none;
+  width:100%;
+  margin:0;
+  box-sizing:border-box;
+}
+
+/* contêiner rolável para listas (unificado com lista-manejar) */
+.scroll-box{
+  /* mais larga visualmente e menos alta */
+  width:calc(100% - 0.5rem);
+  max-width:24rem;                     /* aproveitar a largura do app sem ultrapassar */
+  max-height:5.5rem;                   /* altura reduzida para caixas mais baixas */
+  margin:0.35rem auto 0.6rem;
+  padding:0.6rem;                      /* padding equilibrado */
+  overflow-y:auto;
+  background:var(--branco);
+  border-radius:0.5rem;
+  border:0.125rem solid #e6e7ea;
+  box-shadow:0 0.125rem 0.375rem rgba(0,0,0,0.04);
+}
+
+/* manter barras de rolagem leves */
+.scroll-box::-webkit-scrollbar{ width:0.5rem; }
+.scroll-box::-webkit-scrollbar-track{ background:transparent; }
+.scroll-box::-webkit-scrollbar-thumb{ background:rgba(0,0,0,0.12); border-radius:0.25rem; }
+
+/* lista-manejar (tela manejar) segue mesmo visual, altura menor */
+.lista-manejar{
+  width:calc(100% - 0.5rem);
+  max-width:24rem;
+  max-height: calc(100vh - 15rem); /* reduzir altura disponível para ficar mais baixa */
+  margin:0.35rem auto 0.6rem;
+  padding:0.6rem;
+  overflow-y:auto;
+  background:var(--branco);
+  border-radius:0.5rem;
+  border:0.125rem solid #e6e7ea;
+  box-shadow:0 0.125rem 0.375rem rgba(0,0,0,0.04);
+}
+
+/* ajuste responsivo: reduzir proporções em telas pequenas */
+@media (max-width:22.5rem){
+  .scroll-box{ max-width:22.5rem; max-height:5rem; padding:0.45rem; }
+  .lista-manejar{ max-width:22.5rem; max-height:8.5rem; padding:0.45rem; }
+  .item-card{ max-width:22rem; padding:0.65rem 0.85rem; min-height:2.6rem; }
+  .item-text{ font-size:1.02rem; }
+}
+
+/* ajuste responsivo */
+@media (max-width:22.5rem){
+  .nav-inferior{ gap:0.5rem; padding:0.5rem; }
+  .nav-inferior a{ padding:0.4rem 0.2rem; height:4rem; min-height:4rem; font-size:0.9rem; }
+  .botao-principal{ font-size:1.25rem; max-width:20rem; padding:0.875rem 1rem; } /* ajuste para telas pequenas */
+  .item-card{ max-width:21rem; padding:0.55rem 0.6rem; }
+  .item-text{ font-size:1rem; }
+  .botao-principal--dourado{ font-size:1.15rem; padding:0.9rem 1rem; max-width:20rem; }
+  .scroll-box{ max-height:7.5rem; padding:0.15rem; } /* caixas ainda menores em telas pequenas */
+}
+
+/* Acessibilidade de foco */
+a:focus-visible, button:focus-visible, .aba:focus-visible{
+  outline:0.1875rem solid rgba(0,0,0,0.12);
+  outline-offset:0.125rem;
+}
+
+/* Altera o fundo do botão "Manejar estoque" para o gradiente do cabeçalho da página de estoque */
+.botao-principal--dourado{
+  /* usar o mesmo gradiente do #cabecalho-estoque */
+  background:linear-gradient(180deg,var(--laranja),var(--laranja-dark));
+  color:var(--branco);
+  border-color:rgba(0,0,0,0.12);
+  box-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.08);
+}
+
+/* cabeçalho específico para a tela de Vendas — cor solicitada #7F8C16 */
+#cabecalho-vendas{
+  background: linear-gradient(180deg, #7F8C16, #6f7a13);
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+/* variação de botão para a tela Vendas */
+.botao-principal--vendas{
+  background: linear-gradient(180deg, #7F8C16, #6f7a13);
+  color:var(--branco);
+  border-color: rgba(0,0,0,0.12);
+  box-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.06);
+}
+
+/* foco acessível consistente */
+.botao-principal--vendas:focus{
+  outline:0.1875rem solid rgba(0,0,0,0.08);
+  outline-offset:0.125rem;
+}
+
+/* título maior apenas na tela de Vendas */
+#cabecalho-vendas + .conteudo .indicador{
+  font-size:2.2rem; /* aumentado para destacar "Vendas" */
+  line-height:1;
+  margin-bottom:0.25rem;
+}
+
+/* responsivo: reduz um pouco o título em telas muito pequenas */
+@media (max-width:22.5rem){
+  #cabecalho-vendas + .conteudo .indicador{
+    font-size:1.8rem;
+  }
+}
+
+/* título maior apenas na tela de estoque */
+#cabecalho-estoque + .conteudo .indicador{
+  font-size:2.6rem; /* título "Estoque" bem maior nesta tela */
+  line-height:1;
+  margin-bottom:0;
+}
+
+/* posicionar o container do indicador próximo ao topo no estoque (mais moderado para evitar sobreposição) */
+#cabecalho-estoque + .conteudo .indicador-container{
+  margin-top:-0.6rem; /* menos negativa para evitar sobreposição após empurrar o main para baixo */
+  z-index:2;
+}
+
+/* garantir que o main da página 'estoque' permita a scroll-box crescer e preencher o espaço
+   (mesmo comportamento aplicado a #cabecalho-manejar anteriormente) */
+#cabecalho-estoque + .conteudo{
+  align-items:stretch;
+  justify-content:flex-start;
+  padding-top:2rem; /* aumenta o espaçamento superior para "descer" todo o conteúdo do main */
+}
+
+/* centraliza as sections secundárias dentro do main apenas na tela estoque */
+#cabecalho-estoque + .conteudo .centro{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center; /* centraliza verticalmente */
+  align-items:center;
+  gap:1.5rem; /* aumentado para dar mais espaço entre as seções secundárias */
+  width:100%;
+}
+
+/* garantir que as conteudo-secundaria mantenham largura adequada dentro do centro */
+#cabecalho-estoque + .conteudo .centro .conteudo-secundaria{
+  width:100%;
+  max-width:24.25rem;
+}
+
+/* títulos das seções de lista (maiores que a subtítulo global) */
+.conteudo-secundaria .subtitulo{
+  font-size:1.25rem; /* aumentado */
+  font-weight:400;   /* remover negrito (normal) */
+  margin:0.25rem 0 1rem; /* maior margin-bottom para mais separação */
+  color:var(--preto);
+}
+
+/* ajuste responsivo */
+@media (max-width:22.5rem){
+  .conteudo-secundaria .subtitulo{ font-size:1.05rem; } /* menor em telas pequenas */
+}
+
+/* nav da index como grid de blocos (tiles) */
+#nav-index{
+  position:sticky;
+  bottom:0;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:0.5rem;
+  padding:0.75rem;
+  background:transparent; /* mostra o gap branco entre os tiles */
+  border-top:var(--borda) solid rgba(0,0,0,0.06);
+}
+
+#nav-index a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0.25rem;
+  text-decoration:none;
+  color:var(--preto);
+  font-weight:700;
+  font-size:0.8rem;
+  padding:0.5rem 0.25rem;
+
+  background:var(--verde-claro);
+  border-radius:0; /* blocos sem cantos arredondados */
+  border:var(--borda) solid rgba(0,0,0,0.04);
+  box-shadow:0 0.08rem 0.25rem rgba(0,0,0,0.03);
+  height:4.2rem;
+  min-height:4.2rem;
+  text-align:center;
+}
+
+#nav-index .icone{
+  width:2.8rem;
+  height:2.8rem;
+  object-fit:contain;
+  border-radius:0;
+  background:transparent;
+}
+
+/* cabeçalho específico para a tela 'Manejar estoque' (usar tom similar ao estoque) */
+#cabecalho-manejar{
+  background:linear-gradient(180deg,var(--laranja),var(--laranja-dark));
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+/* garantir que o main da página 'manejar' permita a lista crescer e preencher o espaço */
+#cabecalho-manejar + .conteudo{
+  align-items:stretch;
+  justify-content:flex-start;
+  padding-top:0.6rem; /* pequena folga interna */
+}
+
+/* lista rolável na tela de manejar: visual igual à "antiga" scroll-box, mais alta */
+.lista-manejar{
+  width:calc(100% - 0.5rem);
+  max-width:24rem;
+  max-height: calc(100vh - 15rem); /* reduzir altura disponível para ficar mais baixa */
+  margin:0.35rem auto 0.6rem;
+  padding:0.6rem;
+  overflow-y:auto;
+  background:var(--branco);
+  border-radius:0.5rem;
+  border:0.125rem solid #e6e7ea;
+  box-shadow:0 0.125rem 0.375rem rgba(0,0,0,0.04);
+}
+
+/* barra de rolagem leve (WebKit) — herda do scroll-box */
+.lista-manejar::-webkit-scrollbar{ width:0.5rem; }
+.lista-manejar::-webkit-scrollbar-track{ background:transparent; }
+.lista-manejar::-webkit-scrollbar-thumb{
+  background:rgba(0,0,0,0.12);
+  border-radius:0.25rem;
+}
+
+/* garantir que comportamento em flex containers continue adequado */
+#cabecalho-manejar + .conteudo{
+  align-items:stretch;
+  justify-content:flex-start;
+  padding-top:0.6rem;
+}
+
+/* ajuste responsivo */
+@media (max-width:22.5rem){
+  .lista-manejar{ max-height: calc(100vh - 11.5rem); padding:0.5rem; }
+  .item-card--manejar .nome{ font-size:1.25rem; }
+}
+
+/* pequenas adaptações responsivas */
+@media (max-width:22.5rem){
+  .lista-manejar{ max-height:11.5rem; }
+  .item-card--manejar .nome{ font-size:1.3rem; }
+  .item-card--manejar .quantidade{ font-size:1.15rem; padding:0.2rem 0.5rem; }
+  .acoes-footer .acao{ font-size:1.05rem; padding:0.7rem 0; }
+}
+
+/* footer de ações (botões grandes lado a lado) */
+.acoes-footer{
   position:sticky;
   bottom:0;
   display:flex;
   gap:0.5rem;
-  padding:0.625rem;
-  background:#fff;
-  border-top:var(--borda) solid #eceef1;
+  padding:0.5rem;
+  background:transparent;
+  border-top:0.0625rem solid rgba(0,0,0,0.04);
 }
-.nav-inferior a{
+.acoes-footer .acao{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--branco);
+  font-weight:700;
+  font-size:1.25rem;
+  padding:0.9rem 0;
+  background:linear-gradient(180deg,var(--laranja),var(--laranja-dark));
+  border:0.12rem solid rgba(0,0,0,0.08);
+  box-shadow:0 0.125rem 0.3rem rgba(0,0,0,0.08);
+  border-radius:0; /* sem raio, como na referência */
+}
+
+/* esconder checkbox usado para seleção (apenas na lista remover) */
+#scroll-remover-manejar .select{
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:-1px;
+  padding:0;
+  border:0;
+  clip:rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+/* quando o checkbox estiver marcado, estiliza o label.item-card (visual vermelho) */
+#scroll-remover-manejar .select:checked + .item-card,
+#scroll-remover-manejar .item-card.select-checked{ /* fallback se necessário */
+  background: rgba(255,230,230,0.95);
+  border-color: #d33;
+  color: #8a0000;
+}
+#scroll-remover-manejar .select:checked + .item-card .nome,
+#scroll-remover-manejar .select:checked + .item-card .quantidade{
+  color:#8a0000;
+  font-weight:800;
+}
+
+/* estado visual ao selecionar item na tela 'remover' (aplica apenas à lista com id scroll-remover-manejar) */
+#scroll-remover-manejar .item-card.selecionado{
+  background: rgba(255,230,230,0.95);
+  border-color: #d33;
+  color: #8a0000;
+}
+#scroll-remover-manejar .item-card.selecionado .nome,
+#scroll-remover-manejar .item-card.selecionado .quantidade{
+  color:#8a0000;
+  font-weight:800;
+}
+
+/* Ajustes exclusivos para a tela "Adicionar estoque" */
+#cabecalho-adicionar + .conteudo{
+  /* distribui conteúdo verticalmente na página específica */
+  align-items:stretch;
+  justify-content:space-between;
+  padding-top:0.8rem;
+}
+
+/* faz a section secundária (com o form) crescer e centralizar conteúdo */
+#cabecalho-adicionar + .conteudo .conteudo-secundaria{
   flex:1;
   display:flex;
   flex-direction:column;
+  justify-content:flex-start; /* começar no topo para permitir o botão no fim */
   align-items:center;
-  gap:0.375rem;
-  text-decoration:none;
-  color:var(--preto);
-  font-weight:700;
-  font-size:0.75rem;
+  width:100%;
 }
 
-/* Ícones */
-.icone{
+/* form com largura controlada e campos empilhados */
+#cabecalho-adicionar + .conteudo .form-adicionar{
+  width:100%;
+  max-width:24.25rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.85rem;
+  padding:0.25rem;
+  flex:1;              /* ocupa a altura disponível para empurrar .acoes-form ao final */
+  box-sizing:border-box;
+}
+
+/* campos ocupam largura total */
+#cabecalho-adicionar + .conteudo .form-adicionar .campo{
+  width:100%;
+}
+#cabecalho-adicionar + .conteudo .form-adicionar .campo input{
+  width:100%;
+  padding:0.75rem 0.9rem;   /* campos maiores */
+  font-size:1.05rem;
+  border-radius:0.5rem;
+  border:0.12rem solid var(--cinza);
+  box-shadow:0 0.06rem 0.12rem rgba(0,0,0,0.02);
+  box-sizing:border-box;
+}
+#cabecalho-adicionar + .conteudo .form-adicionar .campo label{
   display:block;
-  width:3.5rem;
-  height:3.5rem;
-  object-fit:contain;
+  margin-bottom:0.35rem;
+  font-weight:700;
+  font-size:0.95rem;
+}
+
+/* empurra as ações para o final do form/main */
+#cabecalho-adicionar + .conteudo .acoes-form{
+  margin-top:auto;
+  display:flex;
+  gap:0.6rem;
+  width:100%;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* botão principal ocupa mais espaço */
+#cabecalho-adicionar + .conteudo .acoes-form .botao-principal{
+  flex:1;
+  margin-right:0.5rem;
+}
+
+/* link de cancelar como ação secundária */
+#cabecalho-adicionar + .conteudo .acoes-form .acao{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.6rem 0.8rem;
+  text-decoration:none;
+  background:transparent;
+  color:var(--preto);
+  border-radius:0.5rem;
+  min-width:5.5rem;
+  border:0.09rem solid rgba(0,0,0,0.04);
+}
+
+/* cabeçalho específico para a tela 'Metas' — vermelho (escopo por id) */
+#cabecalho-metas{
+  background: linear-gradient(180deg,var(--vermelho),var(--vermelho));
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+/* área do ícone (central, circular) */
+.form-metas .meta-icone{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0.4rem 0 0.6rem;
+}
+
+/* formulário de metas — centralizado e espaçado */
+.form-metas{
+  width:100%;
+  max-width:20.5rem;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:0.9rem;
+  padding:0.25rem;
+}
+
+/* campos maiores e visuais compatíveis com o app */
+.form-metas .campo label{
+  display:block;
+  font-weight:700;
+  margin-bottom:0.35rem;
+  color:var(--preto);
+}
+.form-metas .campo input[type="number"],
+.form-metas .campo input[type="date"]{
+  width:100%;
+  padding:0.9rem 1rem;
+  font-size:1.05rem;
+  border-radius:0.6rem;
+  border:0.12rem solid var(--cinza);
+  box-shadow:0 0.06rem 0.12rem rgba(0,0,0,0.02);
+  box-sizing:border-box;
+  background:var(--branco);
+}
+
+/* ações: botão grande na largura total */
+.acoes-metas{
+  margin-top:0.6rem;
+  display:flex;
+  width:100%;
+}
+.acoes-metas .botao-principal{
+  width:100%;
+  padding:0.95rem 1rem;
+  font-size:1.05rem;
   border-radius:0.75rem;
 }
 
-/* Estado ativo */
-.nav-inferior a.ativo .icone{
-  box-shadow:0 0.5rem 1.25rem rgba(0,0,0,.12);
-  border-radius:0.875rem;
+/* botão principal vermelho (usado aqui) */
+.botao-principal--vermelho{
+  background:linear-gradient(180deg,var(--vermelho),var(--vermelho));
+  color:var(--branco);
+  border:0.12rem solid rgba(0,0,0,0.08);
+  box-shadow:0 0.125rem 0.3rem rgba(0,0,0,0.08);
 }
 
-/* Responsivo */
+/* foco acessível */
+#cabecalho-metas + .conteudo .form-metas input:focus,
+#cabecalho-metas + .conteudo .form-metas button:focus{
+  outline:0.1875rem solid rgba(0,0,0,0.08);
+  outline-offset:0.125rem;
+}
+
+/* centraliza o conteúdo da página Metas (vertical + horizontal) */
+#cabecalho-metas + .conteudo{
+  justify-content:flex-start; /* posiciona o conteúdo no topo */
+  align-items:center;         /* centraliza horizontalmente */
+  padding-top:0.6rem;         /* pequena folga abaixo do cabeçalho */
+}
+
+/* seção secundária da Metas: centraliza internamente e mantém largura controlada */
+#cabecalho-metas + .conteudo .conteudo-secundaria{
+  width:100%;
+  max-width:24.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start; /* itens começam no topo da seção */
+  align-items:center;          /* centraliza horizontalmente */
+  gap:0.75rem;
+  padding-top:0;
+}
+
+/* topo da seção com título + ícone: centralizados horizontalmente no topo */
+#cabecalho-metas + .conteudo .conteudo-secundaria .meta-top{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  width:100%;
+  justify-content:center; /* centraliza título+imagem */
+  margin-top:0.4rem;      /* garante que fique um pouco abaixo do header */
+}
+
+/* imagem ao lado do título (um pouco menor) */
+#cabecalho-metas + .conteudo .conteudo-secundaria .meta-img-large{
+  width:88px;
+  height:88px;
+  object-fit:contain;
+}
+
+/* tornar o form flexível para empurrar o botão ao fim da área visível */
+#cabecalho-metas + .conteudo .form-metas{
+  display:flex;
+  flex-direction:column;
+  flex:1;               /* ocupa espaço disponível dentro da section */
+  width:100%;
+  max-width:20.5rem;
+  box-sizing:border-box;
+}
+
+/* empurra o botão de ações ao final do form */
+#cabecalho-metas + .conteudo .acoes-metas{
+  position:sticky;
+  bottom:0;
+  margin-top:0.8rem;      /* pequena folga antes do botão */
+  padding-bottom:0.6rem;  /* folga entre botão e borda inferior */
+  display:flex;
+  justify-content:center; /* centraliza o botão horizontalmente */
+  background:transparent; /* evita sobreposição visual */
+  z-index:2;
+}
+
+/* garantir que o botão ocupe a largura adequada dentro do sticky */
+#cabecalho-metas + .conteudo .acoes-metas .botao-principal{
+  width:100%;
+  max-width:20.5rem;
+  box-sizing:border-box;
+}
+
+/* layout vertical específico para a tela Vendas:
+   - vendas (indicador) no topo
+   - centro (.conteudo-secundaria) centralizado no espaço disponível
+   - rodapé/nav continua sticky na parte inferior */
+#cabecalho-vendas + .conteudo{
+  /* usar todo o espaço disponível do main para distribuir verticalmente */
+  align-items:stretch;
+  justify-content:space-between;
+  padding-top:1.6rem;   /* afasta um pouco do cabeçalho */
+  padding-bottom:0.6rem;
+  gap:2rem;             /* GAP maior entre elementos do main só nesta tela */
+  min-height: calc(100% - 0rem); /* garante que o main ocupe o espaço do aplicativo */
+}
+
+/* remover a margem negativa do indicador só para vendas, para ficar próximo ao topo */
+#cabecalho-vendas + .conteudo .indicador-container{
+  margin-top:0;
+  z-index:2;
+}
+
+/* centralizar verticalmente a seção .centro dentro do main (fica entre indicador e footer) */
+#cabecalho-vendas + .conteudo .centro{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center; /* centraliza verticalmente */
+  align-items:center;     /* centraliza horizontalmente */
+  gap:1.5rem;
+  width:100%;
+}
+
+/* garantir que a conteudo-secundaria tenha largura controlada dentro do centro */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria{
+  width:100%;
+  max-width:24.25rem;
+}
+
+/* estilização específica do centro (conteudo-secundaria) apenas para a tela Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria{
+  background:var(--branco);
+  padding:1rem;
+  border-radius:0.75rem;
+  border:0.09rem solid #e6e7ea;
+  box-shadow:0 0.125rem 0.35rem rgba(0,0,0,0.04);
+  box-sizing:border-box;
+}
+
+/* form dentro do centro (apenas em Vendas) */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:0.85rem;
+  padding:0; /* padding do container já definido acima */
+  box-sizing:border-box;
+}
+
+/* campos (label + input) apenas em Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+
+/* labels maiores e consistentes dentro de Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo label{
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--preto);
+}
+
+/* inputs visualmente maiores e com sombra leve — scope Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input{
+  width:100%;
+  padding:0.85rem 1rem;
+  font-size:1.05rem;
+  border-radius:0.6rem;
+  border:0.12rem solid var(--cinza);
+  box-shadow:0 0.06rem 0.12rem rgba(0,0,0,0.02);
+  background:var(--branco);
+  box-sizing:border-box;
+}
+
+/* ajustar ações (botões) apenas no contexto Vendas */
+#cabecalho-vendas + .conteudo .acoes-botoes.coluna{
+  margin-top:0.8rem;
+  gap:0.6rem;
+}
+
+/* refinamentos visuais do formulário na tela Vendas (escopo limitado) */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria{
+  /* já tem background/borda/sombra — só ajustar espaçamento interno */
+  padding:1.25rem;
+}
+
+/* tornar o form mais espaçado e legível */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar{
+  gap:1rem;
+}
+
+/* campos: labels acima do input, peso e espaçamento maior para legibilidade */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo{
+  gap:0.45rem;
+}
+
+/* labels mais legíveis */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo label{
+  font-size:1.08rem;
+  letter-spacing:0.2px;
+}
+
+/* inputs ocupam 100% e têm foco com a cor de Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input{
+  width:100%;
+  padding:0.9rem 1rem;
+  font-size:1.06rem;
+  border-radius:0.6rem;
+  border:0.12rem solid var(--cinza);
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+/* foco com destaque na cor da tela Vendas (#7F8C16) */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input:focus{
+  border-color:#7F8C16;
+  box-shadow:0 0 0.6rem rgba(127,140,22,0.12);
+  outline:none;
+}
+
+/* placeholder mais suave */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input::placeholder{
+  color: #a8a8a8;
+}
+
+/* alinhar números à direita facilita leitura de valores */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input[type="number"]{
+  text-align:right;
+}
+
+/* ajustar campo date para ter altura e alinhamento corretos */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input[type="date"]{
+  padding:0.7rem 0.9rem;
+  height:auto;
+  line-height:1.2;
+}
+
+/* botões maiores e consistentes dentro do container de ações (Vendas) */
+#cabecalho-vendas + .conteudo .acoes-botoes.coluna .botao-principal{
+  padding:1rem;
+  font-size:1.05rem;
+}
+
+/* reduzir padding em telas muito pequenas para evitar overflow */
+@media (max-width:20rem){
+  #cabecalho-vendas + .conteudo .centro .conteudo-secundaria{
+    padding:0.5rem;
+  }
+  #cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input{
+    padding:0.6rem 0.75rem;
+    font-size:1rem;
+  }
+}
+
+/* Correções específicas quando o main tem .vendas-conteudo (evita afetar outras telas) */
+#cabecalho-vendas + .conteudo.vendas-conteudo{
+  align-items:stretch;   /* permite que containers internos ocupem largura total */
+  text-align:left;       /* labels alinhados à esquerda */
+}
+
+/* garantir que a section conteudo-secundaria do Vendas herde o estilo (ambos caminhos) */
+#cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria,
+#cabecalho-vendas + .conteudo.vendas-conteudo .centro .conteudo-secundaria{
+  width:100%;
+  max-width:24.25rem;
+}
+
+/* forçar .campo em coluna e inputs full-width apenas dentro do escopo vendas-conteudo */
+#cabecalho-vendas + .conteudo.vendas-conteudo .form-adicionar .campo,
+#cabecalho-vendas + .conteudo.vendas-conteudo .centro .form-adicionar .campo{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0.45rem;
+}
+
+/* inputs ocupam toda a largura e são blocos — aumenta especificidade para garantir aplicação */
+#cabecalho-vendas + .conteudo.vendas-conteudo .form-adicionar .campo input,
+#cabecalho-vendas + .conteudo.vendas-conteudo .centro .form-adicionar .campo input{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  padding:0.9rem 1rem;
+  font-size:1.06rem;
+  border-radius:0.6rem;
+  border:0.12rem solid var(--cinza);
+  box-shadow:0 0.06rem 0.12rem rgba(0,0,0,0.02);
+}
+
+/* foco com destaque na cor da tela Vendas (#7F8C16) — mantém acessibilidade */
+#cabecalho-vendas + .conteudo.vendas-conteudo .form-adicionar .campo input:focus{
+  border-color:#7F8C16;
+  box-shadow:0 0 0.6rem rgba(127,140,22,0.12);
+  outline:none;
+}
+
+/* garantir que ações (botoes) fiquem em coluna ou linha conforme .acoes-form já existente,
+   aqui apenas reforçamos largura dos botões dentro do escopo vendas-conteudo */
+#cabecalho-vendas + .conteudo.vendas-conteudo .acoes-form .botao-principal{
+  flex:1;
+}
+
+/* aumentar o espaçamento vertical entre campos ampliando o gap do form e dos .campo somente no escopo da tela Vendas */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar,
+#cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar{
+  gap:1.5rem; /* maior espaçamento entre campos */
+}
+
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo,
+#cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar .campo{
+  gap:0.8rem; /* espaço entre label e input (e entre múltiplos elementos do campo) */
+}
+
+/* labels maiores */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo label,
+#cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar .campo label{
+  font-size:1.4rem;
+  line-height:1.12;
+}
+
+/* inputs maiores */
+#cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input,
+#cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar .campo input{
+  font-size:1.25rem;
+  padding:1rem 1rem;
+}
+
+/* responsivo: reduzir um pouco em telas pequenas */
 @media (max-width:22.5rem){
-  .botao-principal{ font-size:2rem }
+  #cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar,
+  #cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar{
+    gap:1rem;
+  }
+  #cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo label,
+  #cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar .campo label{
+    font-size:1.05rem;
+  }
+  #cabecalho-vendas + .conteudo .centro .conteudo-secundaria .form-adicionar .campo input,
+  #cabecalho-vendas + .conteudo.vendas-conteudo .conteudo-secundaria .form-adicionar .campo input{
+    font-size:1.05rem;
+    padding:0.75rem 0.9rem;
+  }
 }
 

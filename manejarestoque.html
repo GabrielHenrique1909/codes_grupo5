@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <title>FeiraTop</title>
-        <meta charset="UTF-8">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Manejar Estoque</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <header class="cabecalho" id="cabecalho-manejar">
+        <a class="voltar" href="estoque.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
 
-    <body>
-        <header>
-            <a href="estoque.html">Voltar</a>
-            <h1>FeiraTop</h1>
-        </header>
-        <main>
-            <h3>Batatas - 40x</h3>
-            <h4>Validade: 2 semanas </h4>
-            <h3>Bananas - 36x</h3>
-            <h4>Validade: 5 dias </h4>
-            <h3>Abacaxi - 12x</h3>
-            <h4>Validade: 3 dias </h4>
+      <main class="conteudo">
+        <!-- lista rolável (simulação maior) -->
+        <ul class="scroll-box lista-manejar">
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Abacaxi</div><div class="quantidade">12x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>1 dia</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Cenoura</div><div class="quantidade">20x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>3 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Alface</div><div class="quantidade">8x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>3 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Banana</div><div class="quantidade">36x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>2 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Tomate</div><div class="quantidade">15x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>4 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Laranja</div><div class="quantidade">22x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>5 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Morango</div><div class="quantidade">6x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>1 dia</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Pera</div><div class="quantidade">10x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>2 dias</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Maçã</div><div class="quantidade">0x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>-</strong></div><div class="slot-empty"></div></div></li>
+          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Cebola</div><div class="quantidade">1x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>-</strong></div><div class="slot-empty"></div></div></li>
+        </ul>
+       </main>
 
-            <h2><a href="adicionar_estoque.html">Adicionar</a>
-            </h2>
-            <h2><a href="remover_estoque.html">Remover</a>
-            </h2>
-        </main>
-    </body>
+      <!-- footer de ações (sem nav inferior) -->
+      <div class="acoes-footer" role="contentinfo" aria-label="Ações">
+        <a class="acao botao-adicionar" href="adicionar_estoque.html" role="button" title="Adicionar ao estoque">Adicionar</a>
+        <a class="acao botao-remover" href="remover_estoque.html" role="button" title="Remover do estoque">Remover</a>
+      </div>
+  </body>
 </html>

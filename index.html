@@ -8,40 +8,41 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <section class="aplicativo">
-      <header class="cabecalho">
+      <header id="cabecalho-index" class="cabecalho"> <!-- id único para a index -->
         <h1 class="marca">FeiraTop</h1>
-        <button class="menu-hamburguer" aria-label="Menu" type="button">
-          <span></span>
-        </button>
+        <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
       </header>
+
       <main class="conteudo">
-        <section class="indicador-container">
-          <h2 class="indicador">Lucro: 800</h2>
-          <h4 class="subtitulo">100% da meta</h4>
+        <section class="indicador-container" aria-labelledby="lucro-titulo">
+          <h2 id="lucro-titulo" class="indicador">Lucro: <span class="valor">R$800</span></h2>
+          <p class="subtitulo">100% da meta</p>
         </section>
+
         <img class="grafico" src="img/grafico-tela-inicial.png" alt="Gráfico de Lucro">
-        <ul class="abas">
-          <li class="aba aba--ativa">Dia</li>
-          <li class="aba">Mês</li>
-          <li class="aba">Ano</li>
+
+        <ul class="abas" role="tablist" aria-label="Período">
+          <li class="aba aba--ativa" role="tab" aria-selected="true">Dia</li>
+          <li class="aba" role="tab">Mês</li>
+          <li class="aba" role="tab">Ano</li>
         </ul>
-        <a class="botao-principal" href="vendas.html">Vendas</a>
+
+        <a class="botao-principal" href="vendas.html" role="button">Vendas</a>
       </main>
-      <nav class="nav-inferior" aria-label="Navegação principal">
+
+      <nav class="nav-inferior" id="nav-index" aria-label="Navegação principal">
         <a href="estoque.html" title="Estoque">
           <img class="icone" src="img/estoque.png" alt="Estoque">
-          Estoque
+          <span>Estoque</span>
         </a>
-        <a href="metas.html" class="ativo" title="Metas">
+        <a href="metas.html" title="Metas">
           <img class="icone" src="img/meta.png" alt="Metas">
-          Metas
+          <span>Metas</span>
         </a>
         <a href="cupons.html" title="Cupons">
           <img class="icone" src="img/recibo.png" alt="Cupons">
-          Cupons
+          <span>Cupons</span>
         </a>
       </nav>
-    </section>
   </body>
 </html>

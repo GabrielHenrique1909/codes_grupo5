@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> 
-    <head>
-        <title>FeiraTop</title>
-        <meta charset="UTF-8">
-    </head>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Adicionar Estoque</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <header class="cabecalho" id="cabecalho-adicionar"> <!-- id exclusivo para esta tela -->
+        <a class="voltar" href="manejarestoque.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
+      
+      <main class="conteudo">
 
-    <body>
-        <header>
-            <a href="manejarestoque.html">Voltar</a>
-            <h1>FeiraTop</h1>
-        </header>
-        <main>
-            <h3>Novo Produto - 40x</h3>
-            <h4>Validade: x dias </h4>
-            <input type="checkbox">
-            <h3>Bananas - 36x</h3>
-            <h4>Validade: 5 dias </h4>
-            <h3>Abacaxi - 12x</h3>
-            <h4>Validade: 3 dias </h4>
+        <section class="conteudo-secundaria">
+          <h2 class="subtitulo">Adicionar estoque</h2>
+          <form class="form-adicionar" action="manejarestoque.html" method="post" novalidate>
+            <fieldset class="campo">
+              <label for="produto-nome">Nome do produto</label>
+              <input id="produto-nome" name="produto" type="text" required placeholder="Ex: Maçã">
+            </fieldset>
 
-            <h2><a href="estoque.html">Confirmar</a>
-            </h2>
-        </main>
-    </body>
-</html>
+            <fieldset class="campo">
+              <label for="produto-quantidade">Quantidade</label>
+              <input id="produto-quantidade" name="quantidade" type="number" min="1" required placeholder="Ex: 10">
+            </fieldset>
+
+            <fieldset class="campo">
+              <label for="produto-validade">Validade (dias)</label>
+              <input id="produto-validade" name="validade" type="number" min="0" required placeholder="Ex: 7">
+            </fieldset>
+
+            <div class="acoes-form">
+              <button type="submit" class="botao-principal botao-principal--dourado">Adicionar</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    <!-- fim layout fluido (sem .aplicativo) -->
+   </body>
+ </html>

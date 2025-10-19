@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <title>FeiraTop</title>
-        <meta charset="UTF-8">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Metas</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <header class="cabecalho" id="cabecalho-metas">
+        <a class="voltar" href="index.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
 
-    <body>
-        <header>
-            <a href="index.html">Voltar</a>
-            <h1>FeiraTop</h1>
-            <h2>Metas</h2>
-        </header>
-        <main>
-            <img src="img/meta.png" alt="Simbolo Meta" width="200" height="150">
+      <main class="conteudo">
+        <section class="conteudo-secundaria" aria-labelledby="meta-titulo">
+          <div class="meta-top">
+            <h2 id="meta-titulo" class="indicador">Meta</h2>
+            <div class="meta-icone" aria-hidden="true">
+              <img src="img/meta.png" alt="Ícone Meta" class="meta-img-large">
+            </div>
+          </div>
 
-            <h3>Definir Meta</h3>
-            <input type="number" name="nome" placeholder="Digite sua meta">
+          <form class="form-metas" action="index.html" method="post" novalidate>
+            <div class="campo">
+              <label for="valor-meta">Definir meta:</label>
+              <input id="valor-meta" name="valor" type="number" min="0" step="0.01" placeholder="R$ 0,00">
+            </div>
 
-            <h3>Quando deseja atingir a Meta</h3>
-            <input type="date" name="Data da meta">
-            <a href="index.html">Confirmar</a>
-        </main>
-    </body>
+            <div class="campo">
+              <label for="data-meta">Quando deseja atingir a meta:</label>
+              <input id="data-meta" name="data" type="date">
+            </div>
+
+            <div class="acoes-metas">
+              <button type="submit" class="botao-principal botao-principal--vermelho">Atualizar meta</button>
+            </div>
+          </form>
+        </section>
+      </main>
+  </body>
 </html>
