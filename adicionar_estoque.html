@@ -6,6 +6,7 @@
     <title>FeiraTop — Adicionar Estoque</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/adicionar_estoque.js" defer></script>
   </head>
   <body>
       <header class="cabecalho" id="cabecalho-adicionar"> <!-- id exclusivo para esta tela -->
@@ -40,6 +41,21 @@
           </form>
         </section>
       </main>
-    <!-- fim layout fluido (sem .aplicativo) -->
+
+    <!-- Mensagem de erro -->
+    <div id="modal-erro" class="modal-erro hidden">
+      <div class="modal-erro-conteudo">
+        <p class="modal-erro-texto">Preencha todos os campos para adicionar um item</p>
+        <button id="btn-fechar-erro" class="modal-erro-btn" type="button">OK</button>
+      </div>
+    </div>
+
+    <!-- Mensagem de sucesso -->
+    <div id="modal-sucesso" class="modal-sucesso hidden">
+      <div class="modal-sucesso-conteudo">
+        <p class="modal-sucesso-texto">Item adicionado com sucesso!</p>
+        <a href="estoque.html" class="modal-sucesso-btn">OK</a>
+      </div>
+    </div>
    </body>
  </html>

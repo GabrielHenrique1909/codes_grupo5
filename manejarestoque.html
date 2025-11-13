@@ -6,6 +6,7 @@
     <title>FeiraTop — Manejar Estoque</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/manejar_estoque.js" defer></script>
   </head>
   <body>
       <header class="cabecalho" id="cabecalho-manejar">
@@ -15,18 +16,8 @@
       </header>
 
       <main class="conteudo">
-        <!-- lista rolável (simulação maior) -->
-        <ul class="scroll-box lista-manejar">
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Abacaxi</div><div class="quantidade">12x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>1 dia</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Cenoura</div><div class="quantidade">20x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>3 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Alface</div><div class="quantidade">8x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>3 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Banana</div><div class="quantidade">36x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>2 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Tomate</div><div class="quantidade">15x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>4 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Laranja</div><div class="quantidade">22x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>5 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Morango</div><div class="quantidade">6x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>1 dia</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Pera</div><div class="quantidade">10x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>2 dias</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Maçã</div><div class="quantidade">0x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>-</strong></div><div class="slot-empty"></div></div></li>
-          <li class="item-card item-card--manejar"><div class="card-row"><div class="nome">Cebola</div><div class="quantidade">1x</div></div><div class="card-row card-row--bottom"><div class="validade">Validade: <strong>-</strong></div><div class="slot-empty"></div></div></li>
+        <ul class="scroll-box lista-manejar" id="lista-manejar">
+          <!-- Itens serão renderizados pelo JavaScript -->
         </ul>
        </main>
 

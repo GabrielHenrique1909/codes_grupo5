@@ -6,6 +6,7 @@
     <title>FeiraTop — Remover Estoque</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/remover_estoque.js" defer></script>
   </head>
   <body>
     <header class="cabecalho" id="cabecalho-estoque"> 
@@ -16,79 +17,26 @@
 
     <main class="conteudo">
     <ul id="scroll-remover-manejar" class="scroll-box lista-manejar" aria-label="Itens para remover">
-      <li>
-          <input class="select" type="checkbox" id="r1">
-          <label class="item-card item-card--manejar" for="r1">
-            <span class="card-row"><span class="nome">Maçã</span><span class="quantidade">0x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r2">
-          <label class="item-card item-card--manejar" for="r2">
-            <span class="card-row"><span class="nome">Cebola</span><span class="quantidade">1x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r3">
-          <label class="item-card item-card--manejar" for="r3">
-            <span class="card-row"><span class="nome">Batata</span><span class="quantidade">0x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r4">
-          <label class="item-card item-card--manejar" for="r4">
-            <span class="card-row"><span class="nome">Limão</span><span class="quantidade">0x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r5">
-          <label class="item-card item-card--manejar" for="r5">
-            <span class="card-row"><span class="nome">Melancia</span><span class="quantidade">0x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r6">
-          <label class="item-card item-card--manejar" for="r6">
-            <span class="card-row"><span class="nome">Repolho</span><span class="quantidade">0x</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r7">
-          <label class="item-card item-card--manejar" for="r7">
-            <span class="card-row"><span class="nome">Abacaxi</span><span class="quantidade">1 dia</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r8">
-          <label class="item-card item-card--manejar" for="r8">
-            <span class="card-row"><span class="nome">Cenoura</span><span class="quantidade">3 dias</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r9">
-          <label class="item-card item-card--manejar" for="r9">
-            <span class="card-row"><span class="nome">Alface</span><span class="quantidade">3 dias</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-        <li>
-          <input class="select" type="checkbox" id="r10">
-          <label class="item-card item-card--manejar" for="r10">
-            <span class="card-row"><span class="nome">Banana</span><span class="quantidade">2 dias</span></span>
-            <span class="card-row card-row--bottom"><span class="validade">Validade: <strong>-</strong></span><span class="slot-empty"></span></span>
-          </label>
-        </li>
-      </ul>
+      <!-- Itens serão renderizados pelo JavaScript -->
+    </ul>
 
-      <a class="botao-principal botao-principal--dourado" href="estoque.html" role="button">Confirmar</a>
+      <button id="btn-confirmar-remocao" class="botao-principal botao-principal--dourado" type="button">Confirmar</button>
     </main>
+
+    <!-- Mensagem de erro -->
+    <div id="modal-erro" class="modal-erro hidden">
+      <div class="modal-erro-conteudo">
+        <p class="modal-erro-texto">Selecione pelo menos um item para remover</p>
+        <button id="btn-fechar-erro" class="modal-erro-btn" type="button">OK</button>
+      </div>
+    </div>
+
+    <!-- Mensagem de sucesso -->
+    <div id="modal-sucesso" class="modal-sucesso hidden">
+      <div class="modal-sucesso-conteudo">
+        <p class="modal-sucesso-texto">Itens removidos com sucesso!</p>
+        <a href="estoque.html" class="modal-sucesso-btn">OK</a>
+      </div>
+    </div>
   </body>
 </html>
