@@ -18,20 +18,22 @@
         <section class="centro conteudo-secundaria">
           <h2 class="subtitulo">Adicionar gasto</h2>
           <form id="form-adicionar-gasto" class="form-adicionar" action="vendas.html" method="post" novalidate aria-label="Formulário adicionar gasto">
+            <section class="conteudo_adicionar_gasto">
             <fieldset class="campo">
-              <label for="nome-gasto">Nome do gasto</label>
+              <label class="legenda_gasto">Nome do gasto</label>
               <input id="nome-gasto" name="gasto_nome" type="text" placeholder="Batatas, cenouras..." required>
             </fieldset>
 
             <fieldset class="campo">
-              <label for="valor-gasto">Valor (R$)</label>
+              <label class="legenda_gasto">Valor (R$)</label>
               <input id="valor-gasto" name="gasto_valor" type="number" step="0.01" placeholder="0,00" required>
             </fieldset>
 
             <fieldset class="campo">
-              <label for="data-gasto">Data</label>
+              <label class="legenda_gasto">Data</label>
               <input id="data-gasto" name="gasto_data" type="date" required>
             </fieldset>
+            </section>
 
             <div class="acoes-form" role="group" aria-label="Ações formulário">
               <a class="botao-principal botao-principal--vendas" href="vendas.html">Confirmar</a>
