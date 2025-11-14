@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Registro</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/registro.js" defer></script>
+  </head>
+  <body class="scroll-enabled">
+      <header class="cabecalho" id="cabecalho-registro">
+        <a class="voltar" href="index.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
+
+      <main class="conteudo">
+        <section class="indicador-container">
+          <h2 class="titulo">Registro</h2>
+        </section>
+
+        <div class="estatisticas-vendas">
+          <div class="estat-venda-item">
+            <span class="estat-venda-label">Mais vendido:</span>
+            <span class="estat-venda-valor" id="mais-vendido">Nenhum</span>
+          </div>
+          <div class="estat-venda-item">
+            <span class="estat-venda-label">Menos vendido:</span>
+            <span class="estat-venda-valor" id="menos-vendido">Nenhum</span>
+          </div>
+        </div>
+
+        <h3 class="subtitulo-registro">Produtos vendidos</h3>
+
+        <ul class="scroll-box lista-registro" id="lista-registro">
+          <!-- Produtos serão renderizados pelo JavaScript -->
+        </ul>
+
+        <a class="botao-principal botao-principal--registro" href="adicionar_vendas.html">Adicionar venda +</a>
+       </main>
+  </body>
+</html>

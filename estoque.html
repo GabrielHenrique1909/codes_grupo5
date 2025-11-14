@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/estoque.js" defer></script>
   </head>
-  <body>
+  <body class="scroll-enabled">
       <header class="cabecalho" id="cabecalho-estoque">
         <a class="voltar" href="index.html" title="Voltar" aria-label="Voltar">&#8592;</a>
         <h1 class="marca">FeiraTop</h1>
@@ -16,29 +16,21 @@
       </header>
 
       <main class="conteudo">
-        <section aria-labelledby="estoque-titulo" class="indicador-container">
-          <h2 id="estoque-titulo" class="indicador">Estoque</h2>
+        <section class="indicador-container">
+          <h2 class="titulo">Estoque</h2>
         </section>
 
-        <!-- centro: centraliza as listas dentro do main -->
-        <div class="centro">
-          <section class="conteudo-secundaria" aria-labelledby="vencer-titulo">
-            <h3 id="vencer-titulo" class="subtitulo">Produtos a vencer</h3>
-            <ul id="scroll-estoque-vencer" class="scroll-box">
-              <!-- Itens serão renderizados pelo JavaScript -->
-            </ul>
-          </section>
+        <h3 class="subtitulo-estoque">Produtos a vencer</h3>
+        <ul class="scroll-box lista-estoque" id="lista-produtos-vencer">
+          <!-- Produtos serão renderizados pelo JavaScript -->
+        </ul>
 
-          <section class="conteudo-secundaria" aria-labelledby="falta-titulo">
-            <h3 id="falta-titulo" class="subtitulo">Produtos em falta</h3>
-            <ul id="scroll-estoque-falta" class="scroll-box">
-              <!-- Itens serão renderizados pelo JavaScript -->
-            </ul>
-          </section>
-        </div>
+        <h3 class="subtitulo-estoque">Produtos em falta</h3>
+        <ul class="scroll-box lista-estoque" id="lista-produtos-falta">
+          <!-- Produtos serão renderizados pelo JavaScript -->
+        </ul>
 
-        <!-- botão fica no final do main graças ao .centro ocupar espaço flexível -->
-        <a class="botao-principal botao-principal--dourado" href="manejarestoque.html" role="button">Manejar estoque</a>
-      </main>
+        <a class="botao-principal botao-principal--dourado" href="manejarestoque.html">Manejar estoque</a>
+       </main>
   </body>
 </html>

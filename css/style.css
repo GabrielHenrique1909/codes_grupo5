@@ -93,6 +93,16 @@ body.scroll-enabled{
   margin:0;
   color:var(--preto);
 }
+
+/* Classe padronizada para títulos de todas as telas */
+.titulo{
+  font-family:'Fredoka', sans-serif;
+  font-weight:700;
+  font-size:3rem;
+  margin:0;
+  color:var(--preto);
+}
+
 /* cor específica para a quantia */
 .indicador .valor{
   color:var(--verde-escuro);
@@ -102,12 +112,7 @@ body.scroll-enabled{
 .grafico{
   display:block;
   width:100%;
-  max-width:22.5rem;
-  margin:1rem auto 0.75rem;
-  border-radius:0.75rem;
-  border:var(--borda) solid #e6e7ea;
-  background:var(--branco);
-  box-shadow:0 0.1875rem 0.625rem rgba(0,0,0,.04);
+  max-width:15rem;
   object-fit:cover;
 }
 
@@ -240,6 +245,12 @@ body.scroll-enabled{
 /* texto de valores positivos (lucro) */
 .valor-positivo{
   color:var(--verde-escuro);
+  font-weight:800;
+}
+
+/* texto de valores negativos (prejuízo) */
+.valor-negativo{
+  color:var(--vermelho);
   font-weight:800;
 }
 
@@ -472,6 +483,25 @@ body.scroll-enabled{
   box-sizing:border-box;
 }
 
+.campo select{
+  width:100%;
+  padding:0.75rem 0.9rem;
+  font-size:1.05rem;
+  border-radius:0.5rem;
+  border:0.12rem solid var(--cinza);
+  box-shadow:0 0.06rem 0.12rem rgba(0,0,0,0.02);
+  box-sizing:border-box;
+  background:var(--branco);
+  cursor:pointer;
+  font-family:'Nunito Sans', sans-serif;
+}
+
+.campo select:disabled{
+  background:#f5f5f5;
+  color:#999;
+  cursor:not-allowed;
+}
+
 /* cabeçalho específico para a tela 'Metas' */
 #cabecalho-metas{
   background: linear-gradient(180deg,var(--vermelho),var(--vermelho));
@@ -668,5 +698,211 @@ body.scroll-enabled{
 .menu-hamburguer span{ top:50%; transform:translateY(-50%); }
 .menu-hamburguer span::before{ top:-0.5rem; }
 .menu-hamburguer span::after { top:0.5rem; }
+
+/* ============================================
+  TELA REGISTRO
+  ============================================ */
+
+#cabecalho-registro{
+  background: linear-gradient(180deg, #a4ac5c, #95a054);
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+#titulo-registro{
+  font-size:2.5rem;
+  color:var(--preto);
+  margin-bottom:1rem;
+}
+
+.estatisticas-vendas{
+  width:100%;
+  max-width:24rem;
+  margin:0.5rem auto 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.6rem;
+  box-sizing:border-box;
+}
+
+.estat-venda-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0.8rem 1rem;
+  border-radius:0.5rem;
+  background:var(--branco);
+  border:0.12rem solid #e6e7ea;
+  box-shadow:0 0.08rem 0.25rem rgba(0,0,0,0.04);
+}
+
+.estat-venda-label{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--preto);
+}
+
+.estat-venda-valor{
+  font-size:1.15rem;
+  font-weight:800;
+  color:#a4ac5c;
+}
+
+.subtitulo-registro{
+  font-size:1.3rem;
+  font-weight:700;
+  margin:0.5rem 0 0.5rem;
+  color:var(--preto);
+  text-align:center;
+}
+
+.subtitulo-estoque{
+  font-size:1.3rem;
+  font-weight:700;
+  margin:0.5rem 0 0.5rem;
+  color:var(--preto);
+  text-align:center;
+}
+
+.lista-estoque{
+  width:calc(100% - 0.5rem);
+  max-width:24rem;
+  max-height:8rem;
+  margin:0.35rem auto 1rem;
+  padding:0.6rem;
+  overflow-y:auto;
+  background:var(--branco);
+  border-radius:0.5rem;
+  border:0.125rem solid #e6e7ea;
+  box-shadow:0 0.125rem 0.375rem rgba(0,0,0,0.04);
+  list-style:none;
+}
+
+#cabecalho-adicionar-vendas{
+  background: linear-gradient(180deg, #a4ac5c, #95a054);
+  border-bottom:0.0625rem solid rgba(0,0,0,0.06);
+  padding:1.5rem 1rem;
+}
+
+/* Estilos específicos para a tela de Adicionar Vendas */
+.vendas-conteudo{
+  padding:2rem 1rem;
+  justify-content:flex-start;
+}
+
+.vendas-conteudo .conteudo-secundaria{
+  width:100%;
+  max-width:26rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  padding:1rem;
+  box-sizing:border-box;
+}
+
+.form-adicionar-vendas{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  box-sizing:border-box;
+}
+
+.conteudo-campos-vendas{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  width:100%;
+}
+
+.campo-vendas{
+  border:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+}
+
+.legenda-venda{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--preto);
+  text-align:left;
+  display:block;
+}
+
+.campo-vendas input,
+.campo-vendas select{
+  width:100%;
+  padding:1rem 1.25rem;
+  font-size:1.15rem;
+  border-radius:0.75rem;
+  border:0.15rem solid var(--cinza);
+  box-shadow:0 0.125rem 0.375rem rgba(0,0,0,0.04);
+  box-sizing:border-box;
+  background:var(--branco);
+  font-family:'Nunito Sans', sans-serif;
+}
+
+.campo-vendas select{
+  cursor:pointer;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23000' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1rem center;
+  padding-right:2.5rem;
+}
+
+.campo-vendas input:focus,
+.campo-vendas select:focus{
+  outline:none;
+  border-color:#a4ac5c;
+  box-shadow:0 0 0 0.2rem rgba(164,172,92,0.25);
+}
+
+.acoes-form{
+  width:100%;
+  margin-top:1rem;
+}
+
+.botao-principal--registro{
+  background:linear-gradient(180deg,#a4ac5c,#95a054);
+  color:var(--branco);
+  border-color:rgba(0,0,0,0.12);
+  box-shadow:0 0.25rem 0.6rem rgba(0,0,0,0.08);
+  font-size:1.5rem;
+  padding:1.1rem 1.5rem;
+  max-width:100%;
+  margin:0;
+}
+
+.botao-principal--registro:hover{
+  background:linear-gradient(180deg,#95a054,#868e4a);
+}
+
+.meta-valor,
+.meta-dias{
+  font-size:0.95rem;
+  font-weight:600;
+  color:var(--preto);
+  margin:0;
+  text-align:center;
+  line-height:1.4;
+}
+
+.meta-valor strong,
+.meta-dias strong{
+  font-weight:800;
+  color:var(--vermelho);
+  font-size:1.05rem;
+}
+
+#porcentagem-meta{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--preto);
+  margin:0.4rem 0 0 0;
+}
 
 /* End */

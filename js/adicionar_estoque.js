@@ -13,12 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('estoque', JSON.stringify(estoque));
     }
 
-    function adicionarProduto(nome, quantidade, validade) {
+    function adicionarProduto(nome, quantidade, dataValidade) {
         var estoque = carregarEstoque();
+        
         var produto = {
             nome: nome,
             quantidade: parseInt(quantidade),
-            validade: parseInt(validade)
+            validade: dataValidade
         };
         estoque.push(produto);
         salvarEstoque(estoque);

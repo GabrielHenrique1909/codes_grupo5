@@ -6,8 +6,9 @@
     <title>FeiraTop — Adicionar Gasto</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/adicionar_gasto.js" defer></script>
   </head>
-  <body>
+  <body class="scroll-enabled">
       <header class="cabecalho" id="cabecalho-vendas">
         <a class="voltar" href="vendas.html" title="Voltar" aria-label="Voltar">&#8592;</a>
         <h1 class="marca">FeiraTop</h1>
@@ -17,8 +18,8 @@
       <main class="conteudo vendas-conteudo">
         <section class="centro conteudo-secundaria">
           <h2 class="subtitulo">Adicionar gasto</h2>
-          <form id="form-adicionar-gasto" class="form-adicionar" action="vendas.html" method="post" novalidate aria-label="Formulário adicionar gasto">
-            <section class="conteudo_adicionar_gasto">
+          <form id="form-adicionar-gasto" class="form-adicionar" novalidate aria-label="Formulário adicionar gasto">
+            <div class="conteudo_adicionar_gasto">
             <fieldset class="campo">
               <label class="legenda_gasto">Nome do gasto</label>
               <input id="nome-gasto" name="gasto_nome" type="text" placeholder="Batatas, cenouras..." required>
@@ -33,14 +34,29 @@
               <label class="legenda_gasto">Data</label>
               <input id="data-gasto" name="gasto_data" type="date" required>
             </fieldset>
-            </section>
+            </div>
 
             <div class="acoes-form" role="group" aria-label="Ações formulário">
-              <a class="botao-principal botao-principal--vendas" href="vendas.html">Confirmar</a>
+              <button type="submit" class="botao-principal botao-principal--vendas">Confirmar</button>
             </div>
           </form>
         </section>
        </main>
-    <!-- fim layout fluido (sem .aplicativo) -->
+
+      <!-- Modal de erro -->
+      <div class="modal-erro hidden" id="modal-erro">
+        <div class="modal-erro-conteudo">
+          <p class="modal-erro-texto" id="modal-erro-texto"></p>
+          <button class="modal-erro-btn" id="modal-erro-btn">OK</button>
+        </div>
+      </div>
+
+      <!-- Modal de sucesso -->
+      <div class="modal-sucesso hidden" id="modal-sucesso">
+        <div class="modal-sucesso-conteudo">
+          <p class="modal-sucesso-texto">Gasto adicionado com sucesso!</p>
+          <a class="modal-sucesso-btn" href="vendas.html">OK</a>
+        </div>
+      </div>
    </body>
  </html>

@@ -6,8 +6,9 @@
     <title>FeiraTop — Vendas</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/vendas.js" defer></script>
   </head>
-  <body>
+  <body class="scroll-enabled">
       <header class="cabecalho" id="cabecalho-vendas">
         <a class="voltar" href="index.html" title="Voltar" aria-label="Voltar">&#8592;</a>
         <h1 class="marca">FeiraTop</h1>
@@ -16,31 +17,32 @@
  
       <main class="conteudo">
         <div class="indicador-container">
-          <h2 class="indicador">Vendas</h2>
+          <h2 class="titulo">Vendas</h2>
         </div>
  
         <section class="centro conteudo-secundaria">
           <ul class="estatisticas" aria-label="Estatísticas de vendas">
             <li class="estat-item">
               <h3 class="estat-label">Gasto</h3>
-              <span class="estat-valor">R$ 0</span>
+              <span class="estat-valor" id="valor-gasto">R$ 0,00</span>
             </li>
 
             <li class="estat-item">
               <h3 class="estat-label">Vendas</h3>
-              <span class="estat-valor">R$ 0</span>
+              <span class="estat-valor" id="valor-vendas">R$ 0,00</span>
             </li>
 
             <li class="estat-item">
               <h3 class="estat-label">Lucro</h3>
-              <span class="estat-valor valor-positivo">R$ 0</span>
+              <span class="estat-valor valor-positivo" id="valor-lucro">R$ 0,00</span>
             </li>
           </ul>
 
           <nav class="acoes-botoes coluna" aria-label="Ações vendas">
             <a class="botao-principal botao-principal--vendas" href="adicionar_gasto.html">Adicionar gasto</a>
-            <button class="botao-principal botao-principal--vendas" type="button">Recalcular Lucro</button>
+            <a class="botao-principal botao-principal--vendas" href="adicionar_vendas.html">Adicionar venda</a>
           </nav>
+      
         </section>
       </main>
  

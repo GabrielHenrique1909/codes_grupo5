@@ -6,7 +6,7 @@
     <title>FeiraTop</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/codigo.js"></script>
+    <script src="js/index.js" defer></script>
   </head>
   <body>
       <header id="cabecalho-index" class="cabecalho"> <!-- id único para a index -->
@@ -16,11 +16,15 @@
 
       <main class="conteudo">
         <section class="indicador-container" aria-labelledby="lucro-titulo">
-          <h2 id="lucro-titulo" class="indicador">Lucro: <span class="valor">R$800</span></h2>
-          <p class="subtitulo">100% da meta</p>
+          <h2 id="lucro-titulo" class="indicador">Lucro: <span class="valor" id="lucro-display">R$ 0,00</span></h2>
+          <p class="subtitulo" id="porcentagem-meta">0% da meta</p>
+          <div class="meta-info">
+            <p class="meta-valor">Meta: <strong id="valor-meta-display">R$ 0,00</strong></p>
+            <p class="meta-dias">Dias restantes: <strong id="dias-meta-display">0</strong></p>
+          </div>
         </section>
 
-        <img class="grafico" src="img/grafico-tela-inicial.png" alt="Gráfico de Lucro">
+        <img class="grafico" src="img/gráfico.png" alt="Gráfico de Lucro">
 
         <ul class="abas" role="tablist" aria-label="Período">
           <li class="aba aba--ativa" role="tab" aria-selected="true">Dia</li>
@@ -40,9 +44,9 @@
           <img class="icone" src="img/meta.png" alt="Metas">
           <span>Metas</span>
         </a>
-        <a href="cupons.html" title="Cupons">
-          <img class="icone" src="img/recibo.png" alt="Cupons">
-          <span>Cupons</span>
+        <a href="registro.html" title="Registro de Vendas">
+          <img class="icone" src="img/recibo.png" alt="Registro de Vendas">
+          <span>Registro</span>
         </a>
       </nav>
   </body>

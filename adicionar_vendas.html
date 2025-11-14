@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeiraTop — Adicionar Vendas</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/adicionar_vendas.js" defer></script>
+  </head>
+  <body class="scroll-enabled">
+      <header class="cabecalho" id="cabecalho-adicionar-vendas">
+        <a class="voltar" href="registro.html" title="Voltar" aria-label="Voltar">&#8592;</a>
+        <h1 class="marca">FeiraTop</h1>
+        <button class="menu-hamburguer" aria-label="Abrir menu" type="button"><span aria-hidden="true"></span></button>
+      </header>
+
+      <main class="conteudo vendas-conteudo">
+        <section class="centro conteudo-secundaria">
+          <h2 class="titulo">Adicionar Vendas</h2>
+          <form id="form-adicionar-vendas" class="form-adicionar-vendas" novalidate aria-label="Formulário adicionar vendas">
+            <div class="conteudo-campos-vendas">
+              <fieldset class="campo campo-vendas">
+                <label class="legenda-venda">Produto</label>
+                <select id="nome-produto" name="produto_nome" required>
+                  <option value="">Nenhum produto no estoque</option>
+                </select>
+              </fieldset>
+
+              <fieldset class="campo campo-vendas">
+                <label class="legenda-venda">Valor (R$)</label>
+                <input id="valor-produto" name="produto_valor" type="number" step="0.01" placeholder="0,00" required>
+              </fieldset>
+
+              <fieldset class="campo campo-vendas">
+                <label class="legenda-venda">Quantidade</label>
+                <input id="qtd-produto" name="produto_quantidade" type="number" placeholder="0" required>
+              </fieldset>
+            </div>
+
+            <div class="acoes-form" role="group" aria-label="Ações formulário">
+              <button type="submit" class="botao-principal botao-principal--registro">Confirmar</button>
+            </div>
+          </form>
+        </section>
+       </main>
+
+      <!-- Modal de erro -->
+      <div class="modal-erro hidden" id="modal-erro">
+        <div class="modal-erro-conteudo">
+          <p class="modal-erro-texto" id="modal-erro-texto"></p>
+          <button class="modal-erro-btn" id="modal-erro-btn">OK</button>
+        </div>
+      </div>
+
+      <!-- Modal de sucesso -->
+      <div class="modal-sucesso hidden" id="modal-sucesso">
+        <div class="modal-sucesso-conteudo">
+          <p class="modal-sucesso-texto">Venda registrada com sucesso!</p>
+          <a class="modal-sucesso-btn" href="registro.html">OK</a>
+        </div>
+      </div>
+   </body>
+ </html>

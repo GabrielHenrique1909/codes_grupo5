@@ -14,6 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('estoque', JSON.stringify(estoque));
     }
 
+    function calcularDiasRestantes(dataValidade) {
+        var hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+        
+        var validade = new Date(dataValidade);
+        validade.setHours(0, 0, 0, 0);
+        
+        var diferencaTempo = validade - hoje;
+        var diferencaDias = Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24));
+        
+        return diferencaDias;
+    }
+
     function renderizarLista() {
         var estoque = carregarEstoque();
         listaRemover.innerHTML = '';
@@ -28,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             var produto = estoque[i];
             var li = document.createElement('li');
             
-            var textoValidade = produto.validade > 0 ? (produto.validade === 1 ? '1 dia' : produto.validade + ' dias') : '-';
+            var diasRestantes = calcularDiasRestantes(produto.validade);
+            var textoValidade = diasRestantes === 1 ? '1 dia' : diasRestantes + ' dias';
             
             li.innerHTML = '<input class="select" type="checkbox" id="r' + i + '" data-index="' + i + '">' +
                           '<label class="item-card item-card--manejar" for="r' + i + '">' +

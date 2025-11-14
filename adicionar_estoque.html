@@ -9,7 +9,7 @@
     <script src="js/adicionar_estoque.js" defer></script>
   </head>
   <body>
-      <header class="cabecalho" id="cabecalho-adicionar"> <!-- id exclusivo para esta tela -->
+      <header class="cabecalho" id="cabecalho-adicionar">
         <a class="voltar" href="manejarestoque.html" title="Voltar" aria-label="Voltar">&#8592;</a>
         <h1 class="marca">FeiraTop</h1>
         <button class="menu-hamburguer" aria-label="Menu" type="button"><span aria-hidden="true"></span></button>
@@ -31,8 +31,8 @@
             </fieldset>
 
             <fieldset class="campo">
-              <label for="produto-validade">Validade (dias)</label>
-              <input id="produto-validade" name="validade" type="number" min="0" required placeholder="Ex: 7">
+              <label for="produto-validade">Validade</label>
+              <input id="produto-validade" name="validade" type="date" required>
             </fieldset>
 
             <div class="acoes-form">
